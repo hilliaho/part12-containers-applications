@@ -1,0 +1,16 @@
+Script started on 2025-03-26 08:47:45+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="78" LINES="24"]
+[?2004h]0;taina@taina-ThinkCentre-M810z: ~/part12-containers-applications/script-answers[01;32mtaina@taina-ThinkCentre-M810z[00m:[01;34m~/part12-containers-applications/script-answers[00m$ exit[Cdocker run -it ubuntu bash[1@s[1@u[C[1@d[1@o[1@ 
+[?2004l[sudo] password for taina: 
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+
+[1A[2K5a7813e071bf: Pulling fs layer [1B[1A[2K5a7813e071bf: Downloading  298.2kB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  1.531MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  2.743MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  3.046MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  4.909MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  6.146MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  7.391MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  8.616MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  9.861MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading   11.1MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  12.34MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  13.58MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  14.83MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  16.07MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading   17.3MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  18.54MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  19.79MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  21.04MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  21.35MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading   22.9MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  24.13MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  25.38MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading   26.6MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  27.83MB/29.75MB[1B[1A[2K5a7813e071bf: Downloading  29.06MB/29.75MB[1B[1A[2K5a7813e071bf: Download complete [1B[1A[2K5a7813e071bf: Extracting  327.7kB/29.75MB[1B[1A[2K5a7813e071bf: Extracting  4.915MB/29.75MB[1B[1A[2K5a7813e071bf: Extracting   8.52MB/29.75MB[1B[1A[2K5a7813e071bf: Extracting  12.78MB/29.75MB[1B[1A[2K5a7813e071bf: Extracting  19.99MB/29.75MB[1B[1A[2K5a7813e071bf: Extracting  25.23MB/29.75MB[1B[1A[2K5a7813e071bf: Extracting  25.56MB/29.75MB[1B[1A[2K5a7813e071bf: Extracting  28.18MB/29.75MB[1B[1A[2K5a7813e071bf: Extracting  29.49MB/29.75MB[1B[1A[2K5a7813e071bf: Extracting  29.75MB/29.75MB[1B[1A[2K5a7813e071bf: Pull complete [1BDigest: sha256:72297848456d5d37d1262630108ab308d3e9ec7ed1c3286a32fe09856619a782
+Status: Downloaded newer image for ubuntu:latest
+[?2004h]0;root@70aac2dd3e6f: /root@70aac2dd3e6f:/# mkdir /usr/src/app
+[?2004l[?2004h]0;root@70aac2dd3e6f: /root@70aac2dd3e6f:/# touch /usr/src/app/index.js
+[?2004l[?2004h]0;root@70aac2dd3e6f: /root@70aac2dd3e6f:/# [Kexit
+[?2004lexit
+[?2004h]0;taina@taina-ThinkCentre-M810z: ~/part12-containers-applications/script-answers[01;32mtaina@taina-ThinkCentre-M810z[00m:[01;34m~/part12-containers-applications/script-answers[00m$ exit
+[?2004lexit
+
+Script done on 2025-03-26 08:52:06+02:00 [COMMAND_EXIT_CODE="0"]
