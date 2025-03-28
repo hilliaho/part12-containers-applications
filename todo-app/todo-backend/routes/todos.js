@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
 
   const todosCount = await getAsync('added_todos')
   const newTodosCount = todosCount ? parseInt(todosCount) + 1 : 1;
-  await setAsync('added_todos', newTodos)
+  await setAsync('added_todos', newTodosCount)
   res.send(todo);
 });
 
@@ -35,7 +35,7 @@ const findByIdMiddleware = async (req, res, next) => {
 
 /* DELETE todo. */
 singleRouter.delete('/', async (req, res) => {
-  await req.todo.delete()  
+  await req.todo.delete()
   res.sendStatus(200);
 });
 
@@ -43,7 +43,7 @@ singleRouter.delete('/', async (req, res) => {
 singleRouter.get('/', async (req, res) => {
   req.todo ? (
     res.send(req.todo)
-  ):(
+  ) : (
     res.sendStatus(404)
   )
 });

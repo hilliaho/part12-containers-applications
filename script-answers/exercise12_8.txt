@@ -1,0 +1,84 @@
+Script started on 2025-03-28 08:53:57+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="180" LINES="11"]
+[?2004h]0;taina@taina-ThinkCentre-M810z: ~/part12-containers-applications/todo-app/todo-backend[01;32mtaina@taina-ThinkCentre-M810z[00m:[01;34m~/part12-containers-applications/todo-app/todo-backend[00m$ sudo docker compose -f docker-compose.dev.yml up -d
+[?2004l[sudo] password for taina: 
+[33mWARN[0m[0000] Found orphan containers ([todo-backend-app-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
+[1A[1B[0G[?25l[+] Running 0/2
+ [33m⠋[0m Container todo-backend-mongo-1  Starting                                                                                                                                    [34m0.1s [0m
+ [33m⠋[0m Container todo-backend-redis-1  Starting                                                                                                                                    [34m0.1s [0m
+[?25h[1A[1A[1A[0G[?25l[+] Running 0/2
+ [33m⠙[0m Container todo-backend-mongo-1  Starting                                                                                                                                    [34m0.2s [0m
+ [33m⠙[0m Container todo-backend-redis-1  Starting                                                                                                                                    [34m0.2s [0m
+[?25h[1A[1A[1A[0G[?25l[34m[+] Running 2/2[0m
+ [32m✔[0m Container todo-backend-mongo-1  [32mStarted[0m                                                                                                                                     [34m0.3s [0m
+ [32m✔[0m Container todo-backend-redis-1  [32mStarted[0m                                                                                                                                     [34m0.3s [0m
+[?25h[?2004h]0;taina@taina-ThinkCentre-M810z: ~/part12-containers-applications/todo-app/todo-backend[01;32mtaina@taina-ThinkCentre-M810z[00m:[01;34m~/part12-containers-applications/todo-app/todo-backend[00m$ docker[K[K[K[K[K[Ksudo docker exec todo-backend-mongo-1 bash[1@-[1@i[C[1@t[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l[?2004hroot@fbdf20ef2a24:/# mongosh -u root -p example
+[?2004l]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	67e647e491608438bd6b140a
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.4.2[0m
+Using MongoDB:		8.0.6
+[1m[33mUsing Mongosh[0m:		2.4.2
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+[1G[0J [1G[?2004h[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2025-03-28T06:54:22.989+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2025-03-28T06:54:23.834+00:00: Soft rlimits for open file descriptors too low
+   2025-03-28T06:54:23.834+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2025-03-28T06:54:23.834+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2025-03-28T06:54:23.834+00:00: We suggest setting the contents of sysfsFile to 0.
+   2025-03-28T06:54:23.835+00:00: We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.
+[1m[33m------[0m
+
+[1G[0Jtest> [7Gshow dbs
+[1madmin[0m         100.00 KiB
+[1mconfig[0m         72.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   72.00 KiB
+[1G[0Jtest> [7Guse the_database
+switched to db the_database
+[1G[0Jthe_database> [15Gshow cl[1G[0Jthe_database> show c[21Gollections
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.find({})
+[
+  {
+    _id: ObjectId([32m'67e3cf7813b8b5ca676b140b'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'67e3cf7813b8b5ca676b140c'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gdb.todos.insertOne({[32m"[39m[32mt[39m[32me[39m[32mx[39m[32mt[39m[32m"[39m: [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m [32mb[39m[32me[39m[32ml[39m[32mt[39m[32m"[39m, [32m"[39m[32md[39m[32mo[39m[32mn[39m[32me[39m[32m"[39m: fals[33mfalse[39m})
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId([32m'67e6484991608438bd6b140b'[39m)
+}
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m"Increase the number of tools in my tool belt"[39m, [32m"done"[39m: [33mfalse[39m})[106G[1G[0Jthe_database> db.todos.find({})[32G[1G[0Jthe_database> show collections[31G[1G[0Jthe_database> db.todos.find({})[32G
+[
+  {
+    _id: ObjectId([32m'67e3cf7813b8b5ca676b140b'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'67e3cf7813b8b5ca676b140c'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'67e6484991608438bd6b140b'[39m),
+    text: [32m'Increase the number of tools in my tool belt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gexit
+[?2004l[?2004hroot@fbdf20ef2a24:/# exit
+[?2004lexit
+[?2004h]0;taina@taina-ThinkCentre-M810z: ~/part12-containers-applications/todo-app/todo-backend[01;32mtaina@taina-ThinkCentre-M810z[00m:[01;34m~/part12-containers-applications/todo-app/todo-backend[00m$ exit
+[?2004lexit
+
+Script done on 2025-03-28 08:57:34+02:00 [COMMAND_EXIT_CODE="0"]
