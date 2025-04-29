@@ -23,7 +23,7 @@ services:
   server:
     image: todo-back-dev
     build:
-      context: .
+      context: ./todo-backend
       dockerfile: dev.dockerfile
     volumes:
       - ./:/usr/src/app
