@@ -1,15 +1,9 @@
 FROM node:20
-  
+
 WORKDIR /usr/src/app
 
+COPY . .
 
-COPY --chown=node:node . .
+RUN npm ci
 
-RUN npm ci 
-
-ENV DEBUG=playground:*
-  
-
-USER node
-
-CMD npm start
+CMD ["npm", "start"]

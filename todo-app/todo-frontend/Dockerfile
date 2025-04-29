@@ -6,9 +6,9 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm test
-
 RUN npm ci
+
+RUN npm test
 
 RUN npm run build
 
