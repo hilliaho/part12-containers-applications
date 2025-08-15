@@ -1,0 +1,49 @@
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 3456:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes:
+      - ./backend/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - mongo_data:/data/db
+      
+  backend:
+    image: puh-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend/:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
+    container_name: backend
+
+  frontend:
+    image: puh-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend/:/usr/src/app
+
+    container_name: frontend
+
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy
+    depends_on:
+      - frontend
+      - backend
+      - mongo
+
+volumes:
+  mongo_data:
